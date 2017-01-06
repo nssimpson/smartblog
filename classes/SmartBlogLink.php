@@ -83,7 +83,7 @@ class SmartBlogLink
         $theme = ((Shop::isFeatureActive() && file_exists(_MODULE_SMARTBLOG_DIR_ . $ids . ($type ? '-' . $type : '') . '-' . (int) Context::getContext()->shop->id_theme . '.jpg')) ? '-' . Context::getContext()->shop->id_theme : '');
         if ((Configuration::get('PS_LEGACY_IMAGES') && (file_exists(_MODULE_SMARTBLOG_DIR_ . $ids . ($type ? '-' . $type : '') . $theme . '.jpg'))) || ($not_default = strpos($ids, 'default') !== false)) {
             if ($this->allow == 1 && !$not_default) {
-                $uri_path = __PS_BASE_URI__ . 'blog/' . $ids . ($type ? '-' . $type : '') . $theme . '/' . $name . '.jpg';
+                $uri_path = __PS_BASE_URI__ . 'smartblogredirect/' . $ids . ($type ? '-' . $type : '') . $theme . '/' . $name . '.jpg';
             } else {
                 $uri_path = _THEME_PROD_DIR_ . $ids . ($type ? '-' . $type : '') . $theme . '.jpg';
             }
@@ -93,7 +93,7 @@ class SmartBlogLink
             $id_image = (isset($split_ids[1]) ? $split_ids[1] : $split_ids[0]);
             $theme = ((Shop::isFeatureActive() && file_exists(_MODULE_SMARTBLOG_DIR_ . Image::getImgFolderStatic($id_image) . $id_image . ($type ? '-' . $type : '') . '-' . (int) Context::getContext()->shop->id_theme . '.jpg')) ? '-' . Context::getContext()->shop->id_theme : '');
             if ($this->allow == 1) {
-                $uri_path = __PS_BASE_URI__ . 'blog/' . $id_image . ($type ? '-' . $type : '') . $theme . '/' . $name . '.jpg';
+                $uri_path = __PS_BASE_URI__ . 'smartblogredirect/' . $id_image . ($type ? '-' . $type : '') . $theme . '/' . $name . '.jpg';
             } else {
                  
                 $uri_path = __PS_BASE_URI__ . 'modules/smartblog/images/' . $id_image . ($type ? '-' . $type : '') . $theme . '.jpg';
